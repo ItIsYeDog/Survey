@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .survey-container {
+        @apply !bg-gray-900;
+    }
+}
+
+/* Override SurveyJS styles */
+.sd-root-modern {
+    background-color: #1f2937 !important;
+    color: #f3f4f6 !important;
+}
+
+.sd-body {
+    background-color: #1f2937 !important;
+}
+
+.sd-page {
+    background-color: #1f2937 !important;
+}
+
+.sd-question {
+    background-color: #1f2937 !important;
+    color: #f3f4f6 !important;
+}
+
+.sd-input {
+    background-color: #374151 !important;
+    color: #f3f4f6 !important;
+}

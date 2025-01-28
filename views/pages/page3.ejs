@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="nb" data-theme="dark">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/output.css" rel="stylesheet" />
+    <title>Treningsundersøkelse - Del 3</title>
+  </head>
+  <body class="min-h-screen bg-base-300 p-6">
+    <div class="container mx-auto max-w-2xl">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h1 class="card-title text-2xl font-bold text-center mb-6">
+            Treningsundersøkelse - Del 3
+          </h1>
+
+          <div class="w-full bg-base-200 rounded-full h-2.5 mb-6">
+            <div
+              id="progressBar"
+              class="bg-primary h-2.5 rounded-full transition-all duration-300"
+              style="width: 100%"
+            ></div>
+          </div>
+
+          <form
+            id="treningForm"
+            class="space-y-6"
+            action="/survey/page3"
+            method="POST"
+          >
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text"
+                  >Hvor lenge varer en typisk treningsøkt for deg?</span
+                >
+              </label>
+              <div class="flex gap-2 justify-center flex-wrap">
+                <input
+                  type="radio"
+                  name="treningsVarighet"
+                  value="under_30_min"
+                  class="hidden peer/under30"
+                  required
+                  id="varighet-under30"
+                />
+                <label
+                  for="varighet-under30"
+                  class="btn flex-1 peer-checked/under30:btn-primary"
+                  >Under 30 min</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsVarighet"
+                  value="30-60_min"
+                  class="hidden peer/30-60"
+                  required
+                  id="varighet-30-60"
+                />
+                <label
+                  for="varighet-30-60"
+                  class="btn flex-1 peer-checked/30-60:btn-primary"
+                  >30-60 min</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsVarighet"
+                  value="1-2_timer"
+                  class="hidden peer/1-2"
+                  required
+                  id="varighet-1-2"
+                />
+                <label
+                  for="varighet-1-2"
+                  class="btn flex-1 peer-checked/1-2:btn-primary"
+                  >1-2 timer</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsVarighet"
+                  value="over_2_timer"
+                  class="hidden peer/over2"
+                  required
+                  id="varighet-over2"
+                />
+                <label
+                  for="varighet-over2"
+                  class="btn flex-1 peer-checked/over2:btn-primary"
+                  >Over 2 timer</label
+                >
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Hva motiverer deg til å trene?</span>
+              </label>
+              <div class="flex gap-2 justify-center flex-wrap">
+                <input
+                  type="radio"
+                  name="treningsmotivasjon"
+                  value="resultater"
+                  class="hidden peer/resultater"
+                  required
+                  id="motiv-resultater"
+                />
+                <label
+                  for="motiv-resultater"
+                  class="btn flex-1 peer-checked/resultater:btn-primary"
+                  >Resultater</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsmotivasjon"
+                  value="energi"
+                  class="hidden peer/energi"
+                  required
+                  id="motiv-energi"
+                />
+                <label
+                  for="motiv-energi"
+                  class="btn flex-1 peer-checked/energi:btn-primary"
+                  >Energi</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsmotivasjon"
+                  value="foele_meg_bra"
+                  class="hidden peer/bra"
+                  required
+                  id="motiv-bra"
+                />
+                <label
+                  for="motiv-bra"
+                  class="btn flex-1 peer-checked/bra:btn-primary"
+                  >Føle meg bra</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsmotivasjon"
+                  value="sosialt"
+                  class="hidden peer/sosialt"
+                  required
+                  id="motiv-sosialt"
+                />
+                <label
+                  for="motiv-sosialt"
+                  class="btn flex-1 peer-checked/sosialt:btn-primary"
+                  >Sosialt</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsmotivasjon"
+                  value="annet"
+                  class="hidden peer/annet"
+                  required
+                  id="motiv-annet"
+                />
+                <label
+                  for="motiv-annet"
+                  class="btn flex-1 peer-checked/annet:btn-primary"
+                  >Annet</label
+                >
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Har du en fast treningsrutine?</span>
+              </label>
+              <div class="flex gap-2 justify-center flex-wrap">
+                <input
+                  type="radio"
+                  name="treningsrutine"
+                  value="ja"
+                  class="hidden peer/ja"
+                  required
+                  id="rutine-ja"
+                />
+                <label
+                  for="rutine-ja"
+                  class="btn flex-1 peer-checked/ja:btn-primary"
+                  >Ja</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsrutine"
+                  value="nei"
+                  class="hidden peer/nei"
+                  required
+                  id="rutine-nei"
+                />
+                <label
+                  for="rutine-nei"
+                  class="btn flex-1 peer-checked/nei:btn-primary"
+                  >Nei</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsrutine"
+                  value="noen_ganger"
+                  class="hidden peer/noen"
+                  required
+                  id="rutine-noen"
+                />
+                <label
+                  for="rutine-noen"
+                  class="btn flex-1 peer-checked/noen:btn-primary"
+                  >Noen ganger</label
+                >
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text"
+                  >Hvor enig er du i at trening gir bedre livskvalitet?</span
+                >
+              </label>
+              <div class="flex gap-2 justify-center flex-wrap">
+                <input
+                  type="radio"
+                  name="treningLivskvalitet"
+                  value="helt_uenig"
+                  class="hidden peer/helt_uenig"
+                  required
+                  id="livskvalitet-helt-uenig"
+                />
+                <label
+                  for="livskvalitet-helt-uenig"
+                  class="btn flex-1 peer-checked/helt_uenig:btn-primary"
+                  >Helt uenig</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningLivskvalitet"
+                  value="uenig"
+                  class="hidden peer/uenig"
+                  required
+                  id="livskvalitet-uenig"
+                />
+                <label
+                  for="livskvalitet-uenig"
+                  class="btn flex-1 peer-checked/uenig:btn-primary"
+                  >Uenig</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningLivskvalitet"
+                  value="noytral"
+                  class="hidden peer/noytral"
+                  required
+                  id="livskvalitet-noytral"
+                />
+                <label
+                  for="livskvalitet-noytral"
+                  class="btn flex-1 peer-checked/noytral:btn-primary"
+                  >Nøytral</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningLivskvalitet"
+                  value="enig"
+                  class="hidden peer/enig"
+                  required
+                  id="livskvalitet-enig"
+                />
+                <label
+                  for="livskvalitet-enig"
+                  class="btn flex-1 peer-checked/enig:btn-primary"
+                  >Enig</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningLivskvalitet"
+                  value="helt_enig"
+                  class="hidden peer/helt_enig"
+                  required
+                  id="livskvalitet-helt-enig"
+                />
+                <label
+                  for="livskvalitet-helt-enig"
+                  class="btn flex-1 peer-checked/helt_enig:btn-primary"
+                  >Helt enig</label
+                >
+              </div>
+            </div>
+
+            <div class="flex justify-between mt-6">
+              <a href="/survey/page2" class="btn">Tilbake</a>
+              <button type="submit" class="btn btn-primary">Fullfør</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("treningForm");
+      const progressBar = document.getElementById("progressBar");
+      const requiredFields = form.querySelectorAll("[required]");
+
+      function updateProgress() {
+        const total = requiredFields.length;
+        let filled = 0;
+
+        requiredFields.forEach((field) => {
+          if (field.type === "radio") {
+            const groupName = field.name;
+            if (form.querySelector(`input[name="${groupName}"]:checked`)) {
+              filled++;
+            }
+          }
+        });
+
+        const progress = (filled / total) * 100;
+        progressBar.style.width = `${progress}%`;
+      }
+
+      form.addEventListener("input", updateProgress);
+    </script>
+  </body>
+</html>

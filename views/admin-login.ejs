@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nb" data-theme="dark">
+  <head>
+    <link href="/css/output.css" rel="stylesheet" />
+    <title>Admin Login</title>
+  </head>
+  <body class="min-h-screen bg-base-300 p-6">
+    <div class="container mx-auto max-w-md">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h1 class="card-title text-2xl font-bold text-center mb-6">
+            Admin Login
+          </h1>
+
+          <form
+            id="loginForm"
+            class="space-y-4"
+            action="/admin/login"
+            method="POST"
+          >
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Brukernavn</span>
+              </label>
+              <input
+                type="text"
+                name="username"
+                class="input input-bordered"
+                required
+              />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Passord</span>
+              </label>
+              <input
+                type="password"
+                name="password"
+                class="input input-bordered"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full">
+              Logg inn
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

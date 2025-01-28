@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="nb" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link href="/css/output.css" rel="stylesheet" />
+    <title>Treningsundersøkelse - Del 2</title>
+  </head>
+  <body class="min-h-screen bg-base-300 p-6">
+    <div class="w-full md:container md:mx-auto p-2 md:p-6 md:max-w-2xl">
+      <div class="card bg-base-100 shadow-xl min-h-[calc(100vh-1rem)]">
+        <div class="card-body p-4 md:p-6">
+          <h1
+            class="card-title text-xl md:text-2xl font-bold text-center mb-4 md:mb-6"
+          >
+            Treningsundersøkelse - Del 2
+          </h1>
+
+          <div class="w-full bg-base-200 rounded-full h-2.5 mb-4 md:mb-6">
+            <div
+              id="progressBar"
+              class="bg-primary h-2.5 rounded-full transition-all duration-300"
+              style="width: 66%"
+            ></div>
+          </div>
+
+          <form
+            id="treningForm"
+            class="space-y-4 md:space-y-6"
+            action="/survey/page2"
+            method="POST"
+          >
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text text-base"
+                  >Hvor viktig er trening for deg?</span
+                >
+              </label>
+              <div class="grid grid-cols-2 md:flex gap-2 justify-center">
+                <input
+                  type="radio"
+                  name="treningsViktighet"
+                  value="ikke_viktig"
+                  class="hidden peer/ikke"
+                  required
+                  id="viktighet-ikke"
+                />
+                <label
+                  for="viktighet-ikke"
+                  class="btn flex-1 peer-checked/ikke:btn-primary"
+                  >Ikke viktig</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsViktighet"
+                  value="litt_viktig"
+                  class="hidden peer/litt"
+                  required
+                  id="viktighet-litt"
+                />
+                <label
+                  for="viktighet-litt"
+                  class="btn flex-1 peer-checked/litt:btn-primary"
+                  >Litt viktig</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsViktighet"
+                  value="viktig"
+                  class="hidden peer/viktig"
+                  required
+                  id="viktighet-viktig"
+                />
+                <label
+                  for="viktighet-viktig"
+                  class="btn flex-1 peer-checked/viktig:btn-primary"
+                  >Viktig</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsViktighet"
+                  value="svaert_viktig"
+                  class="hidden peer/svaert"
+                  required
+                  id="viktighet-svaert"
+                />
+                <label
+                  for="viktighet-svaert"
+                  class="btn flex-1 peer-checked/svaert:btn-primary"
+                  >Svært viktig</label
+                >
+              </div>
+            </div>
+
+            <div class="form-control w-full">
+              <label class="label">
+                <span class="label-text text-base"
+                  >Hvor ofte trener du på treningssenter?</span
+                >
+              </label>
+              <div class="grid grid-cols-2 md:flex gap-2 justify-center">
+                <input
+                  type="radio"
+                  name="treningssenter"
+                  value="aldri"
+                  class="hidden peer/aldri"
+                  required
+                  id="senter-aldri"
+                />
+                <label
+                  for="senter-aldri"
+                  class="btn flex-1 peer-checked/aldri:btn-primary"
+                  >Aldri</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningssenter"
+                  value="sjeldent"
+                  class="hidden peer/sjeldent"
+                  required
+                  id="senter-sjeldent"
+                />
+                <label
+                  for="senter-sjeldent"
+                  class="btn flex-1 peer-checked/sjeldent:btn-primary"
+                  >Sjeldent</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningssenter"
+                  value="noen_ganger"
+                  class="hidden peer/noen"
+                  required
+                  id="senter-noen"
+                />
+                <label
+                  for="senter-noen"
+                  class="btn flex-1 peer-checked/noen:btn-primary"
+                  >Noen ganger</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningssenter"
+                  value="ofte"
+                  class="hidden peer/ofte"
+                  required
+                  id="senter-ofte"
+                />
+                <label
+                  for="senter-ofte"
+                  class="btn flex-1 peer-checked/ofte:btn-primary"
+                  >Ofte</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningssenter"
+                  value="alltid"
+                  class="hidden peer/alltid"
+                  required
+                  id="senter-alltid"
+                />
+                <label
+                  for="senter-alltid"
+                  class="btn flex-1 peer-checked/alltid:btn-primary"
+                  >Alltid</label
+                >
+              </div>
+            </div>
+
+            <div class="form-control w-full">
+              <label class="label">
+                <span class="label-text text-base"
+                  >Hva er hovedmålet ditt med trening?</span
+                >
+              </label>
+              <div class="grid grid-cols-2 md:flex gap-2 justify-center">
+                <input
+                  type="radio"
+                  name="treningsmaal"
+                  value="bli_sterkere"
+                  class="hidden peer/sterkere"
+                  required
+                  id="maal-sterkere"
+                />
+                <label
+                  for="maal-sterkere"
+                  class="btn flex-1 peer-checked/sterkere:btn-primary"
+                  >Bli sterkere</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsmaal"
+                  value="gaa_ned_i_vekt"
+                  class="hidden peer/vekt"
+                  required
+                  id="maal-vekt"
+                />
+                <label
+                  for="maal-vekt"
+                  class="btn flex-1 peer-checked/vekt:btn-primary"
+                  >Gå ned i vekt</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsmaal"
+                  value="holde_meg_sunn"
+                  class="hidden peer/sunn"
+                  required
+                  id="maal-sunn"
+                />
+                <label
+                  for="maal-sunn"
+                  class="btn flex-1 peer-checked/sunn:btn-primary"
+                  >Holde meg sunn</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsmaal"
+                  value="redusere_stress"
+                  class="hidden peer/stress"
+                  required
+                  id="maal-stress"
+                />
+                <label
+                  for="maal-stress"
+                  class="btn flex-1 peer-checked/stress:btn-primary"
+                  >Redusere stress</label
+                >
+
+                <input
+                  type="radio"
+                  name="treningsmaal"
+                  value="annet"
+                  class="hidden peer/annet"
+                  required
+                  id="maal-annet"
+                />
+                <label
+                  for="maal-annet"
+                  class="btn flex-1 peer-checked/annet:btn-primary"
+                  >Annet</label
+                >
+              </div>
+            </div>
+
+            <div class="flex justify-between mt-auto pt-4">
+              <a href="/survey/page1" class="btn btn-sm md:btn-md">Tilbake</a>
+              <button type="submit" class="btn btn-primary btn-sm md:btn-md">
+                Neste
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("treningForm");
+      const progressBar = document.getElementById("progressBar");
+      const requiredFields = form.querySelectorAll("[required]");
+
+      function updateProgress() {
+        const total = requiredFields.length;
+        let filled = 0;
+
+        requiredFields.forEach((field) => {
+          if (field.type === "radio") {
+            const groupName = field.name;
+            if (form.querySelector(`input[name="${groupName}"]:checked`)) {
+              filled++;
+            }
+          }
+        });
+
+        const progress = (filled / total) * 100;
+        progressBar.style.width = `${progress}%`;
+      }
+
+      form.addEventListener("input", updateProgress);
+    </script>
+  </body>
+</html>
